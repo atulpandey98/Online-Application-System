@@ -8,3 +8,4 @@ The database has 3 tables for
   3. His Photo and documents.
 
 ![Image 1](./img1.png)
+![Image 1](./img2.png)
