@@ -1,0 +1,30 @@
+body{
+    background-color:white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.jumbotron{
+    background-image: linear-gradient(to right, #B4847D,#e5bee1);
+}
+.shadow{
+    box-shadow: 10px,10px,5px,grey;
+}
+h2{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-shadow: 2px 2px 5px rgb(235, 152, 152);
+}
+.btn{
+    background-color: rgb(236, 134, 31);
+}
+.preview{
+    border-style:solid;
+    border-color: #B4847D;
+}
+.caption{
+    border-style: ridge;
+    border-color: #B4847D;
+    font-size: 20px;
+    margin-top:5px;
+    padding-top: 10px;
+    text-align: center;
+    width: 200px;
+}

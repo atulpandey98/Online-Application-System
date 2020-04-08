@@ -1,0 +1,372 @@
+<html>
+    <head>
+            <title>Online Application Form</title>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+            <link rel="stylesheet" type="text/css" href="mystyle.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+            <script>
+                function enable(e){
+                    var own=e;
+                    var form=document.getElementById("myForm");
+                    var elements=form.elements;
+                    if(own.checked==true){
+                        for(var i=0;i<elements.length;i++){ 
+                            elements[i].disabled=false;
+                        }
+                    }
+                    else {
+                        for(var i=0;i<elements.length;i++){ 
+                            elements[i].disabled=true;
+                        }
+                        document.getElementById("emp").disabled=false;
+                       
+                    }
+                    
+                    
+                }
+
+            </script>
+            <script>
+                function readURL(input) {
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+
+                        reader.onload = function (e) {
+                            $('#picture_pre')
+                                .attr('src', e.target.result);
+                        };
+
+                        reader.readAsDataURL(input.files[0]);
+                    }
+                }
+            </script>
+            <script>
+                function readURL1(input) {
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+                            reader.onload = function (e) {
+                                $('#training_pre').attr('src', e.target.result);
+                            };
+                            reader.readAsDataURL(input.files[0]);
+                        }
+                    }
+            </script>
+            <script>
+                function readURL2(input) {
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+                                reader.onload = function (e) {
+                                    $('#gpasheet_pre').attr('src', e.target.result);
+                                };
+                                reader.readAsDataURL(input.files[0]);
+                            }
+                        }
+            </script>
+            <script>
+                function readURL3(input) {
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+                            reader.onload = function (e) {
+                                    $('#intermediate_pre').attr('src', e.target.result);
+                                };
+                                reader.readAsDataURL(input.files[0]);
+                                }
+                            }
+            </script>
+            <script>
+                function readURL4(input) {
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();    
+                            reader.onload = function (e) {
+                                    $('#categorycertificate_pre').attr('src', e.target.result);
+                                };
+                                reader.readAsDataURL(input.files[0]);
+                                }
+                            }
+            </script>
+            
+            <script type = "text/javascript">
+            function getConfirmation() {
+
+                var name;
+                if(document.getElementById('gender').value=='male'){
+                    name='son';
+                }
+                else if(document.getElementById('gender').value=='female'){
+                    name='daughter';
+                }
+                else name='child';
+               var retVal = confirm("I "+document.getElementById('name').value+" "+name+" of "+document.getElementById('pname').value +" request the I/c nodal agency for granting me the permission to undertake student's training at ONGC. I have not undergone any student's training in ONGC of similar type before. ");
+               if( retVal == true ) {
+                  return true;
+               } else {
+                  return false;
+                  
+               }
+            }
+            </script>     
+            <script type="text/javascript">
+               function certificate_required(){
+                   if(document.getElementById('category').value!='general'){
+                    document.getElementById('categorycertificate').required = true;
+                   }
+                   else document.getElementById('categorycertificate').required = false;
+               }
+            </script>
+            
+            <style>
+                img{
+                width:180px;
+                }
+                input[type=file]{
+                padding:10px;
+                }
+                hr { 
+                    display: block;
+                    margin-top: 1em;
+                    margin-bottom: 1em;
+                    margin-left: auto;
+                    margin-right: auto;
+                    border-style: inset;
+                    border-width: 2px;
+                } 
+            </style>
+
+
+    </head>
+    <body>
+       
+    <div class="jumbotron text-center container shadow" style="background-image:linear-gradient(to right,#952725,#B4847D);">
+            <div >
+                    <img id="logo-header" src="logo.png" alt="ONGC India Logo" style="float: left; width:100">
+            </div>
+            <br><br>
+        <h1>OIL AND NATURAL GAS CORPORATION LTD</h1>
+        <p>Application for Student's Training</p>
+        <p>(Summer/Winter/MCA Training)</p>
+        <p>(To be filled in by applicant)</p>
+    </div>
+    <div class="container jumbotron shadow">
+        <h2 style="text-emphasis: bold">Note :</h2><br>
+        <ul> 
+            <li> All fields are necessary (Except Category Certificate in case of GENERAL candidate).</li>
+            <li> Category certificate is required in case of SC/ST/OBC/MOBC/OTHER candidate.</li>
+            <li> Student trainings at work centres would be subject to facilities available at the  respective work centres.</li>
+        </ul>
+    </div>
+    <div class="container jumbotron shadow">
+        <center>
+            <div class="row" >
+              <div class="col-sm-12">
+        <h2>Details of trainee :</h2><br><br>
+        
+        <form class="form-horizontal" id="form1" action="upload.php" method="POST" enctype="multipart/form-data" autocomplete="off">
+            <div class="form-group row">
+                    <label class="control-label col-sm-4" for="name">Name(in capital) : </label><div class="col-sm-8"> <input class="form-control " name="name" id="name" type="text" placeholder="Enter Name" required>
+            </div>
+            </div>
+            <div class="form-group row">
+                    <label class="control-label col-sm-4" for="dob">Date of birth : </label><div class="col-sm-8"> <input class="form-control" type="date" name="dob" id="dob" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="control-label col-sm-4" for="gender">Gender : </label><div class="col-sm-8"><select  id="gender" class="form-control" name="gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+                </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="control-label col-sm-4" for="category">Category : </label><div class="col-sm-8"><select onchange="certificate_required()" name="category" id="category" class="form-control">
+                <option value="general">General</option>
+                <option value="sc">SC</option>
+                <option value="st">ST</option>
+                <option value="obc">OBC</option>
+                <option value="others">Others</option>
+                </select> 
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="control-label col-sm-4" for="address">Address : </label><div class="col-sm-8"> <input type="text" class="form-control" name="address" id="address" placeholder="H.N. 120. street, city, dist, state." required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="control-label col-sm-4" for="mobile">Mobile Number : +91 </label><div class="col-sm-8"><input type="text" class="form-control " name="mobile" id="mobile" placeholder="Mobile Number" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="control-label col-sm-4" for="email">Email : </label><div class="col-sm-8"><input type="email" class="form-control" name="email" id="email" required placeholder="abc@xyz.com">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="control-label form-inline col-sm-4" for="pname"><select name=""  class="form-control" style="width: 120;margin-left:30;">
+                <option>Father's</option>
+                <option>Mother's</option>
+                </select><div style="margin-left:30">Name : </div>
+                </label>
+                <div class="col-sm-8">
+                <input type="text" class="form-control" name="pname" id="pname" required placeholder="Mr./Mrs.  First and Last Name">
+                </div>
+            </div>
+            <div class="form-group row">
+                    <label class="control-label form-inline col-sm-4" for="occupation">
+                    <select name="" class="form-control"  style="width: 120;margin-left:30;">
+                    <option>Father's</option>
+                    <option>Mother's</option>
+                    </select><div style="margin-left:30">Occupation : </div>
+                    </label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="poccupation" id="poccupation" required placeholder="Job">
+                    </div>
+            </div>
+        
+        </form>
+            <fieldset id="myForm" class="form-horizontal" >
+            
+                <div class="form-group row ">
+                        <div class="col-sm-12">
+                    <label class="control-label col-4 form-inline" for="emp">
+                         <div style="margin-left: 100">If employee of ONGC </div>
+                    </label> <input type="checkbox" class="form-control col-1 " style="height: 30;"id="emp" onclick="enable(this);" >
+                    </div>
+                 </div>
+                <form >       
+                        <div class="form-group row">
+                            <div class=" control-label col-sm-4"> <label for="designation"> Designation : </label> <input class="form-control" type="text" name="designation" id="designation" form="form1" disabled required></div>     
+                            <div class=" control-label col-sm-4"> <label for="cpf">CPF : </label> <input class="form-control" type="text" disabled name="cpf" id="cpf" form="form1" required></div>        
+                            <div class=" control-label col-sm-4"> <label for="section">Section : </label> <input class="form-control" type="text" disabled name="section" id="section" form="form1" required></div>
+                                    
+                        </div>
+                        <div class="form-group row">
+                                <div class=" control-label col-sm-4"> <label for="location"> Location : </label> <input class="form-control" type="text" name="location" id="location" form="form1" disabled required></div>     
+                                <div class=" control-label col-sm-4"> <label for="pmobile"> Mobile Number : </label> <input class="form-control" type="text" disabled name="pmobile" id="pmobile" form="form1" required></div>        
+                                <div class=" control-label col-sm-4"> <label for="ptelephone"> Telephone Number : </label> <input class="form-control" type="text" disabled name="ptelephone" id="ptelephone" form="form1" required></div>
+                                        
+                            </div>
+                </form>
+            
+            </fieldset>
+              <br><hr><br>
+
+        <h2>Academic Details : </h2><br><br>
+            <form class="form-horizontal">
+            <div class="form-group row">
+                    <div class=" control-label col-sm-6"><label class="control-label col-sm-6" for="institute">Name of the present Institute : </label><input type="text" class="form-control" name="institute" id="institute" form="form1" required placeholder="College Of Technology, Pantnagar" style="text-align: center"></div>
+                    <div class=" control-label col-sm-6"><label class="control-label col-sm-6" for="course">Name of the present course : </label><input type="text" class="form-control" name="course" id="course" form="form1" required placeholder="Bachelor Of Technology(IT)" style="text-align: center"></div>
+            </div><br>
+            <div class="form-group row">
+                <div class=" control-label col-sm-4">Present <select name="sem" id="sem" form="form1">
+                    <option value="Semester">Semester</option>
+                    <option value="Year">Year</option>
+                    </select> : <input type="text" class="form-control" name="sem_value" id="sem-value" form="form1" required placeholder="6" style="text-align: center">
+                </div>
+                <div class=" control-label col-sm-4">
+                Last Semester <select name="cgpa" id="cgpa" form="form1">
+                    <option>CGPA</option>
+                    <option>Percentage</option>
+                </select> : <input type="text" class="form-control" name="cgpa_value" id="cgpa_value" form="form1" required placeholder="7.5" style="text-align: center">
+                </div>
+                <div class=" control-label col-sm-4" >
+                Percentage in 10+2 : <input type="text" class="form-control" name="percentage" id="percentage" form="form1" required placeholder="90%" style="text-align: center">
+                </div>
+            </div>
+            </form>
+        <br><hr><br>
+        
+        
+        <h2>Upload photo and documents : </h2><br><br>
+        <form class="form-horizontal">
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    
+                        <div style="float: left">Select image  to upload:</div>
+                        <input type='file' onchange="readURL(this);" style="float: left"  accept="image/*" name="photo" form="form1" required/>
+                        <img class="preview" id="picture_pre" src="placeholder.png" alt="your image" />
+                        <div class="caption">
+                                <p>Your photo</p>
+                        </div>
+                        
+                    
+                </div>
+                <div class="col-sm-4">
+                        
+                            <div style="float: left">Select image  to upload:</div>
+                            <input type='file' onchange="readURL1(this);" style="float: left" accept="image/*" name="training" required form="form1"/>
+                            <img class="preview" id="training_pre" src="placeholder.png" alt="your image" />
+                            <div class="caption">
+                                    <p>Training Letter</p>
+                            </div>
+                            
+                       
+                </div>
+                <div class="col-sm-4">
+                       
+                            <div style="float: left">Select image  to upload:</div>
+                            <input type='file' onchange="readURL2(this);" style="float: left" accept="image/*" name="gpasheet" required form="form1"/>
+                            <img class="preview" id="gpasheet_pre" src="placeholder.png" alt="your image" />
+                            <div class="caption">
+                                    <p>CGPA Sheet</p>
+                            </div>
+                            
+                      
+                </div>
+            </div>
+            </form>
+            <br><br>
+            <div class="form-group row">
+                    <div class="col-sm-6">
+                        
+                            <div style="float: left">Select image  to upload:</div>
+                            <input type='file' onchange="readURL3(this);" style="float:none" accept="image/*" name="intermediate" required form="form1"/>
+                            <img class="preview" id="intermediate_pre" src="placeholder.png" alt="your image" />
+                            <div class="caption">
+                                    <p>Intermediate Marksheet</p>
+                            </div>
+                            
+                       
+                    </div>
+                    <div class="col-sm-6">
+                            
+                                <div style="float: left">Select image  to upload:</div>
+                                <input type='file' onchange="readURL4(this);" style="float: left" accept="image/*" id="categorycertificate" name="categorycertificate"  form="form1"/>
+                                <img class="preview" id="categorycertificate_pre" src="placeholder.png" alt="your image" />
+                                <div class="caption">
+                                        <p>Category Certificate</p>
+                                </div>
+                                
+                    </div>
+            </div>
+        
+
+        </div>
+        </div>
+        </div>
+        </center>
+        </div>
+        <div class="container jumbotron shadow">
+            <center>
+                <h2>Undertaking : </h2><br>
+                <div class="row" >
+                    <div class="col-sm-12">
+                        <p>I shall be responsible for the applicant's conduct and discipline during the student's training at ONGC</p>
+                        Name of parent/guardian : 
+                        <input class="form-control col-4" type="text" id="guardian" name="guardian" form="form1" required> </div>
+                    </div><br>
+                    
+                        <input  type="submit" value="Submit" onclick="return getConfirmation()" class="btn btn-warning"  name="upload_submit" form="form1">
+                    
+                    
+                </div>
+                
+            </center>
+        </div>
+    
+    
+    
+    </body>
+</html>
